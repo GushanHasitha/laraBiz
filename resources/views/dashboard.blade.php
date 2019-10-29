@@ -20,13 +20,19 @@
                             <tr>
                                 <td>Company</td>
                                 <td>Website</td>
-                                <td></td>
+                                <td>Actions</td>
                             </tr>
                             @foreach ($listings as $listing)
                                 <tr>
                                     <td>{{$listing->name}}</td>
                                     <td>{{$listing->website}}</td>
-                                    <td></td>
+                                    <td>
+                                        {!! Form::open(['action' => ['ListingsController@destroy', $listing->id], 'method' => 'post', 'class' => 'float-right',  'onsubmit' => 'return confirm("Are you sure want to delete this listing?")']) !!}
+                                        {{ Form::bsSubmit('Delete', ['class' => 'btn btn-danger']) }}
+                                        {{ Form::hidden('_method', 'DELETE') }}
+                                        {!! Form::close() !!}
+                                        <a class="btn btn-warning float-right mr-2" href="/listings/{{$listing->id}}/edit">Edit</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
