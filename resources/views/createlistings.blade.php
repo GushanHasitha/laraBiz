@@ -8,7 +8,15 @@
                     <div class="card-header">Create listing</div>
 
                     <div class="card-body">
-
+                        {!! Form::open(['action' => 'ListingsController@store', 'method' => 'post']) !!}
+                            {{ Form::bsText('name', '', ['placeholder' => 'Please enter your name']) }}
+                            {{ Form::bsText('website', '', ['placeholder' => 'Please enter your web site']) }}
+                            {{ Form::bsText('email', '', ['placeholder' => 'Please enter your email']) }}
+                            {{ Form::bsText('phone', '', ['placeholder' => 'Please enter your phone']) }}
+                            {{ Form::bsText('address', '', ['placeholder' => 'Please enter your address']) }}
+                            {{ Form::bsTextArea('bio', '', ['placeholder' => 'Please enter your bio']) }}
+                            {{ Form::bsSubmit('Add', ['class' => 'btn btn-primary']) }}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

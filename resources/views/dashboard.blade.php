@@ -19,13 +19,13 @@
                         <table class="table table-striped">
                             <tr>
                                 <td>Company</td>
-                                <td></td>
+                                <td>Website</td>
                                 <td></td>
                             </tr>
                             @foreach ($listings as $listing)
                                 <tr>
                                     <td>{{$listing->name}}</td>
-                                    <td></td>
+                                    <td>{{$listing->website}}</td>
                                     <td></td>
                                 </tr>
                             @endforeach
